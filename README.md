@@ -1,6 +1,15 @@
-[![Build Status](https://travis-ci.org/UNOMP/unified-node-open-mining-portal.png?branch=master)](https://travis-ci.org/UNOMP/unified-node-open-mining-portal)
 
-#### Unified NOMP – YENTEN Currency Integration Branch
+
+# YENTEN CryptoCurrency Integration Branch
+
+## Yenten configuration
+
+- `$ cp aux_configs/yenten.json.example aux_configs/yenten.json`
+- `$ vim aux_configs/yenten.json`
+- `$ cp pool_configs/yenten.json.example pool_configs/yenten.json`
+- `$ vim pool_configs/yenten.json`
+
+## Unified NOMP Yenten Branch
 
 This repo will serve as an open source multipool. Multipool capabilities are in alpha testing in this version. This will give the ability to utilize NOMP with merged capabilities but NO merged coin payouts. *ONLY* the main chain coins will payout and calculate correctly at the moment.
 

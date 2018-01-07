@@ -1,0 +1,72 @@
+{
+    "enabled": true,
+    "coin": "yenten.json",
+
+    "auxes": [ // Defines auxillery coins
+        {
+            "coin": "yenten.json",
+            "daemons": [ // It is reccomended to supply multiple daemons here for redundancy
+                {
+                    "host": "127.0.0.1",
+                    "port": ,
+                    "user": "yentenrpc",
+                    "password": ""
+                }
+            ]
+        }
+    ],
+    "address": "",
+
+    "rewardRecipients": {
+        "": 2
+    },
+
+    "paymentProcessing": {
+        "enabled": true,
+        "paymentInterval": 600,
+        "minimumPayment": 9999999999,
+        "daemon": {
+            "host": "127.0.0.1",
+            "port": ,
+            "user": "yentenrpc",
+            "password": ""
+        }
+    },
+
+    "ports": {
+        "3008": {
+            "diff": 8
+        },
+        "3032": {
+            "diff": 32,
+            "varDiff": {
+                "minDiff": 8,
+                "maxDiff": 512,
+                "targetTime": 15,
+                "retargetTime": 90,
+                "variancePercent": 30
+            }
+        },
+        "3256": {
+            "diff": 256
+        }
+    },
+
+    "daemons": [
+        {
+            "host": "127.0.0.1",
+            "port": ,
+            "user": "yentenrpc",
+            "password": ""
+        }
+    ],
+
+    "p2p": {
+        "enabled": false
+    },
+
+    "mposMode": {
+        "enabled": false
+    }
+
+}

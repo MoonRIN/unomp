@@ -1,18 +1,18 @@
 [![Build Status](https://travis-ci.org/UNOMP/unified-node-open-mining-portal.png?branch=master)](https://travis-ci.org/UNOMP/unified-node-open-mining-portal)
 
-#### Unified NOMP
+#### Unified NOMP YENTEN Currency Integration Branch
 
 This repo will serve as an open source multipool. Multipool capabilities are in alpha testing in this version. This will give the ability to utilize NOMP with merged capabilities but NO merged coin payouts. *ONLY* the main chain coins will payout and calculate correctly at the moment.
 
 Join our Slack [here](http://slack.unomp.org)!
 
-This portal is an extremely efficient, highly scalable, all-in-one, easy to setup cryptocurrency mining pool written in Node.js. 
+This portal is an extremely efficient, highly scalable, all-in-one, easy to setup cryptocurrency mining pool written in Node.js.
 It contains a merged stratum pool server; reward/payment/share processor for multipooling; and an (*in progress*)
 responsive user-friendly front-end website featuring mining instructions, in-depth live statistics, and an admin center.
 
 #### Production Usage Notice - Do it with caution!
 This is beta software. All of the following are things that can change and break an existing setup: functionality of any feature,
-structure of configuration files and structure of redis data. If you use this software in production then *DO NOT* pull new code straight into 
+structure of configuration files and structure of redis data. If you use this software in production then *DO NOT* pull new code straight into
 production usage because it can and ~~often~~ will break your setup and require you to tweak things like config files or redis data, among other things.
 
 #### Table of Contents
@@ -41,7 +41,7 @@ production usage because it can and ~~often~~ will break your setup and require 
 * For the pool server it uses the highly efficient [node-merged-pool](//github.com/sigwo/node-merged-pool) module which
 supports vardiff, POW & POS, transaction messages, anti-DDoS, IP banning, [several hashing algorithms](//github.com/sigwo/node-merged-pool#hashing-algorithms-supported).
 
-* This implementation is [merged mining capable](https://en.bitcoin.it/wiki/Merged_mining_specification). You may add AUXPoW coins to the main chain configurations. 
+* This implementation is [merged mining capable](https://en.bitcoin.it/wiki/Merged_mining_specification). You may add AUXPoW coins to the main chain configurations.
 At this point, the merged coins do everything EXCEPT display on the site or payout automatically. Shares, blocks, and coinbase transactions complete as planned.
 
 * Multicoin ability - this software was built from the ground up to run with multiple coins simultaneously (which can
@@ -53,12 +53,12 @@ reward system is used with [Redis Transactions](http://redis.io/topics/transacti
 There is zero risk to the pool operator. Shares from rounds resulting in orphaned blocks will be merged into share in the
 current round so that each and every share will be rewarded.
 
-* This portal ~~does not~~ will never have user accounts/logins/registrations. Instead, miners simply use their coin address for stratum authentication. 
+* This portal ~~does not~~ will never have user accounts/logins/registrations. Instead, miners simply use their coin address for stratum authentication.
 
-* Coin-switching ports using coin-networks and crypto-exchange APIs to detect profitability. 
+* Coin-switching ports using coin-networks and crypto-exchange APIs to detect profitability.
 
 * Past MPOS functionality is no longer available/working. Signing up and mining pools don't mix. See [PR #15](//github.com/sigwo/unified-node-open-mining-portal/pull/15).
- 
+
 * Basic multipooling features included, but *NOT* enabled by default. You must follow the [README](//github.com/sigwo/unified-node-open-mining-portal/blob/master/multipool/README) in the [multipool](//github.com/sigwo/unified-node-open-mining-portal/blob/master/multipool) folder. More updates *WILL* happen in the multipool options and will stay open source.
 
 #### Attack Mitigation
@@ -86,7 +86,7 @@ giving hackers little reward and keeping your pool from being a target.
 
 * UNOMP API - Used by the website to display stats and information about the pool(s) on the portal's front-end website. Mostly complete.
 
-* Integration of [addie.cc](http://addie.cc) usernames for multiple payout type without using a public address that may/may not work with the 
+* Integration of [addie.cc](http://addie.cc) usernames for multiple payout type without using a public address that may/may not work with the
 coin (still not 100% committed yet, see Feature #7)
 
 * Upgrade codebase to operate in node v 0.12
@@ -103,7 +103,7 @@ https://github.com/joyent/node/wiki/installing-node.js-via-package-manager
 OPTIONAL: `sudo npm install posix`, but you will have to start the pool `sudo node init.js`
 
 ##### Seriously
-Those are legitimate requirements. If you use old versions of Node.js or Redis that may come with your system package manager then you will have problems. Follow the linked 
+Those are legitimate requirements. If you use old versions of Node.js or Redis that may come with your system package manager then you will have problems. Follow the linked
 instructions to get the last stable versions.
 
 
@@ -158,10 +158,10 @@ Explanation for each field:
     /* Specifies the level of log output verbosity. Anything more severe than the level specified
        will also be logged. */
     "logLevel": "debug", //or "warning", "error"
-    
+
     /* By default UNOMP logs to console and gives pretty colors. If you direct that output to a
        log file then disable this feature to avoid nasty characters in your log file. */
-    "logColors": true, 
+    "logColors": true,
 
 
     /* The UNOMP CLI (command-line interface) will listen for commands on this port. For example,
@@ -176,30 +176,30 @@ Explanation for each field:
         "enabled": true,
         "forks": "auto"
     },
-    
+
     /* Pool config file will inherit these default values if they are not set. */
     "defaultPoolConfigs": {
-    
+
         /* Poll RPC daemons for new blocks every this many milliseconds. */
         "blockRefreshInterval": 1000,
-        
+
         /* If no new blocks are available for this many seconds update and rebroadcast job. */
         "jobRebroadcastTimeout": 55,
-        
+
         /* Disconnect workers that haven't submitted shares for this many seconds. */
         "connectionTimeout": 600,
-        
+
         /* (For MPOS mode) Store the block hashes for shares that aren't block candidates. */
         "emitInvalidBlockHashes": false,
-        
+
         /* This option will only authenticate miners using an address or mining key. */
         "validateWorkerUsername": true,
-        
+
         /* Enable for client IP addresses to be detected when using a load balancer with TCP
            proxy protocol enabled, such as HAProxy with 'send-proxy' param:
            http://haproxy.1wt.eu/download/1.5/doc/configuration.txt */
         "tcpProxyProtocol": false,
-        
+
         /* If under low-diff share attack we can ban their IP to reduce system/network load. If
            running behind HAProxy be sure to enable 'tcpProxyProtocol', otherwise you'll end up
            banning your own IP address (and therefore all workers). */
@@ -210,7 +210,7 @@ Explanation for each field:
             "checkThreshold": 500, //Perform check when this many shares have been submitted
             "purgeInterval": 300 //Every this many seconds clear out the list of old bans
         },
-        
+
         /* Used for storing share and block submission data and payment processing. */
         "redis": {
             "host": "127.0.0.1",
@@ -262,7 +262,7 @@ Explanation for each field:
        automatically switched a coin determined by the server. The default coin is the first
        configured pool for each algorithm and coin switching can be triggered using the
        cli.js script in the scripts folder.  */
-       
+
     "switching": {
         "switch1": {
             "enabled": false,
@@ -373,7 +373,7 @@ Description of options:
     /* Block rewards go to the configured pool wallet address to later be paid out to miners,
        except for a percentage that can go to, for examples, pool operator(s) as pool fees or
        or to donations address. Addresses or hashed public keys can be used. Here is an example
-       of rewards going to the main pool op and a pool co-owner. Can also be set for mandatory 
+       of rewards going to the main pool op and a pool co-owner. Can also be set for mandatory
        donation coins like GRE and DMD. */
     "rewardRecipients": {
         "n37vuNFkXfk15uFnGoVyHZ6PYQxppD3QqK": 1.5, //1.5% goes to pool op
@@ -488,10 +488,10 @@ node init.js
 
 ###### Optional, highly-recommended enhancements for your awesome new mining pool server setup:
 * Use something like [forever](https://github.com/nodejitsu/forever) to keep the node script running
-in case the master process crashes. 
+in case the master process crashes.
 * Use something like [redis-commander](https://github.com/joeferner/redis-commander) to have a nice GUI
 for exploring your redis database.
-* Use something like [logrotator](http://www.thegeekstuff.com/2010/07/logrotate-examples/) to rotate log 
+* Use something like [logrotator](http://www.thegeekstuff.com/2010/07/logrotate-examples/) to rotate log
 output from UNOMP.
 * Use [New Relic](http://newrelic.com/) to monitor your UNOMP instance and server performance.
 

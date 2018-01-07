@@ -1,5 +1,8 @@
 node_modules/
 .idea/
+pool.json
+pool_configs/yenten.json
+aux_configs/yenten.json
 config.json
 pool_configs/*.json
 !pool_configs/litecoin_example.json

@@ -59,6 +59,22 @@
 
     "switching": {
         "switch1": {
+            "enabled": true,
+            "algorithm": "yenten",
+            "ports": {
+                "6666": {
+                    "diff": 0.001,
+                    "varDiff": {
+                        "minDiff": 0.001,
+                        "maxDiff": 1,
+                        "targetTime": 15,
+                        "retargetTime": 60,
+                        "variancePercent": 30
+                    }
+                }
+            }
+        },
+        "switch2": {
             "enabled": false,
             "algorithm": "sha256",
             "ports": {
@@ -74,7 +90,7 @@
                 }
             }
         },
-        "switch2": {
+        "switch3": {
             "enabled": false,
             "algorithm": "scrypt",
             "ports": {
@@ -90,7 +106,7 @@
                 }
             }
         },
-        "switch3": {
+        "switch4": {
             "enabled": false,
             "algorithm": "x11",
             "ports": {
@@ -98,10 +114,10 @@
                     "diff": 0.001,
                     "varDiff": {
                         "minDiff": 0.001,
-                        "maxDiff": 1, 
-                        "targetTime": 15, 
-                        "retargetTime": 60, 
-                        "variancePercent": 30 
+                        "maxDiff": 1,
+                        "targetTime": 15,
+                        "retargetTime": 60,
+                        "variancePercent": 30
                     }
                 }
             }

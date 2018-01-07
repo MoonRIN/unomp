@@ -1,5 +1,0 @@
-{
-	"yentenport": <rpcport>,
-	"yentenpassword": "<rpcpassword>",
-	"yentenaddress": "<centralwallet>"
-}

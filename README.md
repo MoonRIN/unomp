@@ -4,10 +4,12 @@
 
 ## Yenten configuration
 
-- `$ cp aux_configs/yenten.json.example aux_configs/yenten.json`
-- `$ vim aux_configs/yenten.json`
-- `$ cp pool_configs/yenten.json.example pool_configs/yenten.json`
-- `$ vim pool_configs/yenten.json`
+```bash
+cp aux_configs/yenten.json.example aux_configs/yenten.json
+vim aux_configs/yenten.json
+cp pool_configs/yenten.json.example pool_configs/yenten.json
+vim pool_configs/yenten.json
+```
 
 ## Unified NOMP Yenten Branch
 
